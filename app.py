@@ -18,7 +18,7 @@ platform_colors = {
 
 st.set_page_config(page_title="Streaming Analytics Dashboard", layout="wide")
 
-st.title("🎬 Streaming Platform Insights Dashboard (US Market)")
+st.title(" Streaming Platform Insights Dashboard (US Market)")
 st.write("Interactive analysis of content libraries across Netflix, Hulu, Disney+, and Amazon Prime.")
 
 st.sidebar.header("Filters")
@@ -41,7 +41,7 @@ filtered_df = us_df[
 ]
 
 
-st.subheader("📺 Platform Distribution")
+st.subheader(" Platform Distribution")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -60,7 +60,7 @@ with col2:
     )
     st.plotly_chart(fig2, width='stretch')
 
-st.subheader("🎭 Genre Trends")
+st.subheader(" Genre Trends")
 genre_counts = (
     filtered_df.groupby("platform")["main_genre"]
     .value_counts()
@@ -77,7 +77,7 @@ fig3 = px.bar(
 st.plotly_chart(fig3, width='stretch')
 
 
-st.subheader("📅 Release Year Distribution")
+st.subheader(" Release Year Distribution")
 fig4 = px.histogram(
     filtered_df, x="release_year", color="platform",
     nbins=30, barmode="group",
