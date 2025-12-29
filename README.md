@@ -1,131 +1,156 @@
-# Streaming-Platform-Content-Analysis-
-Streaming Platform Content Analysis
+# Streaming Platform Content Analysis
 
-This repository presents an end-to-end machine learning and NLP framework for analyzing content catalogs across Netflix, Hulu, Amazon Prime, and Disney+.
-The project unifies fragmented streaming metadata, builds predictive models, extracts thematic patterns, and delivers insights through an interactive dashboard.
+An end-to-end Machine Learning and Natural Language Processing framework for analyzing content catalogs across **Netflix**, **Hulu**, **Amazon Prime**, and **Disney+**.
 
-📌 Project Overview
+This project unifies fragmented streaming metadata, builds predictive models, extracts thematic patterns, and delivers insights through an interactive **Streamlit** dashboard.
 
-Modern streaming platforms host thousands of titles with inconsistent metadata and varied catalog strategies. This project provides a structured, automated approach to understand that ecosystem:
+---
 
-Unified dataset across four platforms
+## 📌 Project Overview
 
-Metadata cleaning and feature engineering
+Modern streaming platforms host thousands of titles with inconsistent metadata and varied catalog strategies. This project provides a structured and automated approach to understand that ecosystem.
 
-Machine learning models for predicting content type and platform
+**Core objectives:**
+- Unify datasets across four major streaming platforms  
+- Clean and standardize metadata  
+- Engineer predictive and NLP-ready features  
+- Build high-performing classification models  
+- Discover latent content themes using topic modeling  
+- Present insights through an interactive dashboard  
 
-NLP topic modeling to uncover hidden themes
+---
 
-Streamlit dashboard for real-time insights
+## 📁 Repository Structure
 
-📁 Repository Structure
-📂 Streaming-Platform-Content-Analysis
-│── app.py                                    # Streamlit dashboard
-│── merged_streaming_dataset.csv              # Final cleaned dataset
-│── Predict_content_type_(Movies_vs_TV).ipynb # Content type model
-│── Predict_platform.ipynb                    # Platform prediction model
-│── Topic_modelling_using_descriptions.ipynb  # NLP topic modeling
-│── best_classification_model Predict content.joblib   # Saved XGBoost model
-│── best_model_Predict_platform.joblib        # Saved Random Forest model
-│── README.md                                 # Project documentation
+```
 
-📊 Key Features & Results
-1. Content Type Classification (Movie vs TV Show)
+Streaming-Platform-Content-Analysis/
+│
+├── app.py                                     # Streamlit dashboard
+├── merged_streaming_dataset.csv               # Final cleaned dataset
+├── Predict_content_type_(Movies_vs_TV).ipynb  # Content type classification
+├── Predict_platform.ipynb                     # Platform prediction model
+├── Topic_modelling_using_descriptions.ipynb   # NLP topic modeling
+├── best_classification_model_Predict_content.joblib
+│                                              # Saved XGBoost model
+├── best_model_Predict_platform.joblib         # Saved Random Forest model
+└── README.md                                  # Project documentation
 
-Model: XGBoost
+````
 
-Accuracy: 99.37%
+---
 
-Precision: 98.31%
+## 📊 Key Features and Results
 
-Recall: 99.64%
+### 1. Content Type Classification (Movie vs TV Show)
 
-F1-Score: 98.97%
+- **Model:** XGBoost  
+- **Accuracy:** 99.37 percent  
+- **Precision:** 98.31 percent  
+- **Recall:** 99.64 percent  
+- **F1 Score:** 98.97 percent  
 
-Most important feature: duration_minutes
+**Most important feature:**  
+- `duration_minutes`
 
-2. Platform Prediction Model
+---
 
-Model: Random Forest
+### 2. Platform Prediction Model
 
-Accuracy: 95%
+- **Model:** Random Forest  
+- **Accuracy:** 95 percent  
+- **Cross-validation Mean Accuracy:** 94.60 percent  
 
-Cross-validation Mean: 94.60%
+**Key predictive attributes:**
+- `description_length`  
+- `release_year`  
+- `duration_minutes`  
+- `main_genre` categories  
+- Country indicators  
 
-Key predictive attributes:
+---
 
-description_length
+### 3. Topic Modeling (NMF with TF-IDF)
 
-release_year
+- Extracted **8 dominant content themes**
+- Captures latent patterns beyond structured metadata  
 
-duration_minutes
+**Key themes include:**
+- International dramas  
+- Crime and thriller clusters  
+- Kids and family content  
+- Comedy and romance patterns  
 
-main_genre categories
+---
 
-country indicators
+## 🧼 Data Preparation Pipeline
 
-3. Topic Modeling (NMF + TF-IDF)
+**Cleaning and standardization steps:**
+- Standardized column names  
+- Removed duplicate entries  
+- Handled missing metadata  
 
-Extracted 8 dominant content themes, including:
+**Feature engineering:**
+- `content_type`  
+- `main_genre`  
+- `duration_minutes`  
+- `description_length`  
 
-International dramas
+**Encoding and transformation:**
+- One-hot encoding for categorical variables  
+- Text aggregation for NLP pipelines  
 
-Crime and thriller clusters
+---
 
-Kids and family themes
+## 🧠 Technology Stack
 
-Comedy and romance patterns
+| Component | Technologies |
+|---------|--------------|
+| Machine Learning | XGBoost, Random Forest, Logistic Regression |
+| NLP | TF-IDF, NMF, LDA, CountVectorizer |
+| Dashboard | Streamlit |
+| Data Processing | Pandas, NumPy |
+| Visualization | Matplotlib, Seaborn |
 
-These themes capture deeper content structures beyond traditional metadata.
+---
 
-🧼 Data Preparation Pipeline
+## 📈 Analytics Pipeline Diagram
 
-✔ Standardized column names
-✔ Removed duplicates
-✔ Filled missing metadata
-✔ Created engineered features:
+To embed the pipeline flowchart in GitHub:
 
-content_type
-
-main_genre
-
-duration_minutes
-
-description_length
-
-✔ One-hot encoded categorical features
-✔ Combined text for NLP modeling
-
-🧠 Technology Stack
-Component	Technology
-Machine Learning	XGBoost, Random Forest, Logistic Regression
-NLP	TF-IDF, NMF, LDA, CountVectorizer
-Dashboard	Streamlit
-Data Prep & Analysis	Pandas, NumPy
-Visualization	Matplotlib, Seaborn
-📈 Analytics Pipeline Diagram
-
-Download or embed the flowchart:
-
-/mnt/data/A_flowchart_infographic_titled_"Analytics_Pipeline.png"
-
-
-To embed in GitHub, paste:
-
+```md
 ![Analytics Pipeline](/mnt/data/A_flowchart_infographic_titled_"Analytics_Pipeline.png")
+````
 
-▶ How to Run the Dashboard
+---
 
-Install dependencies:
+## ▶️ How to Run the Dashboard
 
+### 1. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
+### 2. Launch Streamlit application
 
-Run Streamlit:
-
+```bash
 streamlit run app.py
+```
 
-🎯 Conclusion
+---
 
-This project shows how structured metadata and natural language processing can uncover platform strategies, simplify content classification, and support data-driven decision making in the streaming domain.
-It provides a fully operational framework for analysis, automation, and insight generation.
+## 🎯 Conclusion
+
+This project demonstrates how structured metadata combined with Natural Language Processing can uncover platform strategies, simplify content classification, and support data-driven decision making in the streaming ecosystem.
+
+It provides a complete and extensible framework for:
+
+* Content analytics
+* Predictive modeling
+* NLP-driven insights
+* Interactive visualization
+
+This repository is suitable for further research, production extension, or portfolio demonstration.
+
+---
